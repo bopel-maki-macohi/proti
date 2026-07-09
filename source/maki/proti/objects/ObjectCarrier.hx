@@ -52,4 +52,14 @@ class ObjectCarrier<T:Object>
 			return 0;
 		});
 	}
+
+	public function update(elapsed:Float)
+	{
+		forEach(function(object)
+		{
+			object?.update(elapsed);
+		});
+	}
+
+	public function getIDs():Array<String> return [for (object in objects) object?.id];
 }

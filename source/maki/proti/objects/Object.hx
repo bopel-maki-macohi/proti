@@ -13,4 +13,6 @@ class Object
 	{
 		return 'Object(id: $id)';
 	}
+
+	public function update(elapsed:Float) {}
 }
