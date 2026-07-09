@@ -1,23 +1,23 @@
 package maki.proti.objects.render;
 
+import flixel.util.FlxAxes;
+import flixel.FlxSprite;
+
 class RenderObject extends PriorityObject
 {
-	public var render_asset:String = '';
+	public var sprite:FlxSprite;
 
-	override public function new(id:String, ?render_asset:String, ?priority:Null<Int>)
+	override public function new(id:String, ?sprite:FlxSprite, ?priority:Null<Int>)
 	{
 		super(id, priority);
 
-		this.render_asset = render_asset ?? id;
+		this.sprite = sprite;
 	}
 
 	override function toString():String
 	{
-		return 'RenderObject(id: $id, priority: $priority, render_asset: $render_asset)';
+		return 'RenderObject(id: $id, priority: $priority, sprite: $sprite)';
 	}
 
-	public dynamic function getAsset():String
-	{
-		return 'assets/$render_asset';
-	}
+	public function screenCenter(axes:FlxAxes = XY) sprite?.screenCenter(axes);
 }

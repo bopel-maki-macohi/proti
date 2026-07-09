@@ -1,9 +1,20 @@
 package maki.proti.objects.render;
 
+import flixel.FlxCamera;
+
 class RenderObjectCarrier extends PriorityObjectCarrier<RenderObject>
 {
-	public function getAssets():Array<String>
+	public function draw(cameras:Array<FlxCamera>)
 	{
-		return [for (object in objects) object?.getAsset()];
+		if (cameras == null || cameras.length == null) return;
+
+		for (object in objects)
+		{
+			if (object.sprite != null)
+			{
+				object.sprite.cameras = cameras;
+				object.sprite.draw();
+			}
+		}
 	}
 }

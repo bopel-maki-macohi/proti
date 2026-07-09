@@ -6,9 +6,9 @@ class ObjectCarrier<T:Object>
 
 	var objects(default, null):Array<T> = [];
 
-	public function new(max_length:Int = -1)
+	public function new(?max_length:Null<Int>)
 	{
-		this.max_length = max_length;
+		this.max_length = max_length ?? -1;
 	}
 
 	public function add(object:T)
