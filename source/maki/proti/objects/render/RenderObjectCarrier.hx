@@ -6,7 +6,7 @@ class RenderObjectCarrier extends PriorityObjectCarrier<RenderObject>
 {
 	public function draw(cameras:Array<FlxCamera>)
 	{
-		if (cameras == null || cameras.length == null) return;
+		if (cameras == null || cameras.length < 1) return;
 
 		for (object in objects)
 		{
