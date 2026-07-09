@@ -19,6 +19,8 @@ class ObjectCarrier<T:Object>
 		if (objects.indexOf(object) > -1) return;
 
 		objects.push(object);
+
+		defaultSort();
 	}
 
 	public function remove(object:T)
@@ -26,6 +28,8 @@ class ObjectCarrier<T:Object>
 		if (objects.indexOf(object) == -1) return;
 
 		objects.remove(object);
+
+		defaultSort();
 	}
 
 	public function forEach(method:T->Void)
@@ -34,5 +38,18 @@ class ObjectCarrier<T:Object>
 
 		for (object in objects)
 			method(object);
+	}
+
+	public function sort(sort_method:T->T->Int)
+	{
+		if (sort_method != null) objects.sort(sort_method);
+	}
+
+	public function defaultSort()
+	{
+		sort(function(object_a, object_b)
+		{
+			return 0;
+		});
 	}
 }

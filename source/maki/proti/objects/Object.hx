@@ -11,6 +11,6 @@ class Object
 
 	public function toString():String
 	{
-		return 'Object($id)';
+		return 'Object(id: $id)';
 	}
 }
